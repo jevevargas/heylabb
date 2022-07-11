@@ -24,14 +24,14 @@
               <div class="col-12"><h1 class="text-center tt">HEYLAB!</h1></div>
 
               <div class="col-12 mt-4">
-                <input type="text" class="form-control" placeholder="Usuario" autofocus>
+                <input type="text" class="form-control" placeholder="Usuario" id="usuario" autofocus>
               </div>
 
               <div class="col-12 mt-3">
-                <input type="password" class="form-control" placeholder="Clave">
+                <input type="password" class="form-control" placeholder="Clave" id="clave">
               </div>
 
-              <div class="col-12 mt-3 d-grid"><button class="btn btn-primary btn-block">Ingresar</button></div>
+              <div class="col-12 mt-3 d-grid"><button class="btn btn-primary btn-block" onclick="entrar()">Ingresar</button></div>
 
               <div class="alert alert-danger alert-dismissible fade show col-md-12 mt-3" role="alert" id="alertlogin2" style="display:none">
                 La clave o usuario es incorrecto
@@ -48,4 +48,5 @@
 <script src="app/css/boostrap.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="app/js/login.js"></script>
 </html>
