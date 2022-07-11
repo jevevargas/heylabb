@@ -9,6 +9,11 @@
     <title>Bienvenidos a HEYCLINIC!</title>
 </head>
 <body class="m-0 vh-100 row justify-content-center align-items-center">
+
+<div class="carga"  style="display:none">
+    <img src="img/cargando.gif" alt="">
+</div>
+
     <div class="col-md-6 ingresar">
         <div class="row">
             <div class="col-6 col-xs-12">
@@ -16,15 +21,21 @@
             </div>
 
             <div class="col-6 col-xs-12 p-4">
-              <div class="col-12"><h1 class="text-center">HEYLAB!</h1></div>
+              <div class="col-12"><h1 class="text-center tt">HEYLAB!</h1></div>
 
               <div class="col-12 mt-4">
                 <input type="text" class="form-control" placeholder="Usuario" autofocus>
               </div>
+
               <div class="col-12 mt-3">
                 <input type="password" class="form-control" placeholder="Clave">
               </div>
+
               <div class="col-12 mt-3 d-grid"><button class="btn btn-primary btn-block">Ingresar</button></div>
+
+              <div class="alert alert-danger alert-dismissible fade show col-md-12 mt-3" role="alert" id="alertlogin2" style="display:none">
+                La clave o usuario es incorrecto
+              </div>
 
               <div class="col mt-4 version"><p class="text-center"><b>Version 1.0</b></p></div>
             </div>

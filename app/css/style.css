@@ -12,8 +12,27 @@ body{
 
 .ingresar h1{
     font-family: 'Signika Negative', sans-serif;
+  
 }
 
 .version p{
     font-family: 'Cutive Mono', monospace;
+}
+
+.carga{
+    background: #0C1517;
+    height: 100vh;
+    z-index: 1000;
+    position: absolute;
+    opacity: .7;
+   
+ 
+}
+
+
+.carga img{
+    width: 200px;
+    display: block;
+    margin: auto;
+  
 }
