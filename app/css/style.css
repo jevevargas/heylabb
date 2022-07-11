@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
+
+body{
+    background-image: radial-gradient(circle at 73.23% 9.77%, #fffeff 0, #fafafa 12.5%, #f0f5f3 25%, #e6f0ed 37.5%, #daebe7 50%, #cee6e2 62.5%, #c2e1de 75%, #b7dcdc 87.5%, #add8da 100%);
+}
+
+
+.ingresar{
+    background-color: #FFF;
+}
+
+.ingresar h1{
+    font-family: 'Signika Negative', sans-serif;
+}
+
+.version p{
+    font-family: 'Cutive Mono', monospace;
+}
