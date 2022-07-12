@@ -40,4 +40,10 @@ body{
 .addclient{
     background-color: #FFF;
     border-radius: 5px;
+    
+}
+
+.addcita{
+    background-color: #FFF;
+    height: 80vh;
 }

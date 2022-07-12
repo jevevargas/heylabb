@@ -10,17 +10,10 @@
 </head>
 <body>
     <nav><?php require_once('menu.php');  ?></nav>
+    
 
-  <div class="col-12">
-    <div class="row">
-
-        <div class="col-md-1 p-2">
-          <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class='bx bx-menu'></i> Menú</button>
-        </div>
-        <div class="col-md-6 p-3"><h5>HeyLab! (<?php echo $nombrecompleto; ?>)</h5></div>
-
-
-    </div>
+  <div class="col-12 ">
+  <?php require_once('comercio.php');  ?> 
   </div>
     <?php 
     if($idtipousuario=='1')
@@ -35,32 +28,47 @@
                            <h5><i class="bi bi-plus-circle-fill" style="color:rgba(24,119,242,1)"></i> Agregar el registro del cliente</h5>
                         </div>
 
-                        <div class="col-4 mt-4">
+                        <div class="col-md-4 col-sm-6 mt-4">
                             <label for="">Nombre completo</label>
                             <input type="text" class="form-control" id="nombre">
+                            <div class="invalid-feedback">
+                                Campo vacio!
+                            </div>
                         </div>
-                        <div class="col-3 mt-4">
+                        <div class="col-md-3 col-sm-6 mt-4">
                             <label for="">Fecha de nacimiento</label>
                             <input type="date" class="form-control" id="fnacimiento">
                         </div>
-                        <div class="col-2 mt-4">
+                        <div class="col-md-2 mt-4">
                             <label for="">Edad</label>
                             <input type="number" class="form-control" id="edad">
+                            <div class="invalid-feedback">
+                                Campo vacio!
+                            </div>
                         </div>
-                        <div class="col-3 mt-4">
+                        <div class="col-md-3 mt-4">
                             <label for="">Teléfono</label>
                             <input type="number" class="form-control" id="tel" >
+                            <div class="invalid-feedback">
+                                Operación invalida!
+                            </div>
                         </div>
-                        <div class="col-6 mt-3">
+                        <div class="col-md-6 mt-3">
                             <label for="">Correo</label>
                             <input type="text" class="form-control" id="correo" >
+                            <div class="invalid-feedback">
+                                Campo vacio!
+                            </div>
                         </div>
-                        <div class="col-6 mt-3">
+                        <div class="col-md-6 mt-3">
                             <label for="">Observación</label>
-                            <input type="text" class="form-control" id="correo" >
+                            <input type="text" class="form-control" id="obs" >
+                            <div class="invalid-feedback">
+                                Campo vacio!
+                            </div>
                         </div>
-                        <div class="col-12 mt-3">
-                            <center><button class="btn btn-primary" onclick="addclient()">Registrar cliente</button></center>
+                        <div class="col-md-12 mt-3">
+                            <center><button class="btn btn-primary btn-sm" onclick="addclient()"><i class='bx bx-test-tube'></i> Registrar cliente</button></center>
                         </div>
 
                     </div>
@@ -72,7 +80,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3 addcita ml-4">
                         <div class="col-12 border-bottom">
                            <h5> </h5>
                         </div>
