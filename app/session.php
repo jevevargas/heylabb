@@ -15,3 +15,6 @@ if(!isset($_SESSION['idusuario'])){
     //$modfecha = $_SESSION['fechamod'];
    // $nombrecompleto = $_SESSION['nombrecompleto'];
     }
+
+
+    

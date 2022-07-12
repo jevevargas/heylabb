@@ -21,7 +21,7 @@ $(document).ready(function(){
 
    $.ajax({
        type:"POST",
-       url: "session.php",
+       url: "login.php",
        data: {clave:clave,usuario:usuario},
        
        beforeSend:function(){

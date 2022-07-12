@@ -1,0 +1,3 @@
+function addclient(){
+    alert('add');
+}
