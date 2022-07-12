@@ -10,7 +10,7 @@
 </head>
 <body class="m-0 vh-100 row justify-content-center align-items-center">
 
-<div class="carga"  style="display:none">
+<div class="carga" id="carga"  style="display:none">
     <img src="img/cargando.gif" alt="">
 </div>
 
