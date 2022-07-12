@@ -67,7 +67,7 @@
 
                     <div class="col-md-12 addclient mt-5">
                         <div class="col-12 border-bottom">
-                           <h5><i class="bi bi-plus-circle-fill" style="color:rgba(24,119,242,1)"></i> Exámenes listos</h5>
+                           <h5> Exámenes <span class="badge rounded-pill bg-warning text-dark"><i class="bi bi-check-circle-fill" style="color:#000;"></i> listos</span></h5>
                         </div>
                     </div>
                 </div>
