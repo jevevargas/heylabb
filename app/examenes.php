@@ -15,6 +15,17 @@
 <?php require_once('comercio.php');  ?> 
 </div>
 
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-7 addclient m-2 p-4">
+           <div class="col-md-12 border-bottom"><p><b> <i class="bi bi-plus-circle-fill"  style="color:rgba(24,119,242,1)"></i> Agregar exámen</b></p></div>
+        </div>
+
+        <div class="col-md-5">
+
+        </div>
+    </div>
+</div>
 
 
 

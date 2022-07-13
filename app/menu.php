@@ -10,8 +10,9 @@ if($idusuario==1){
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <a href="salir" class="btn btn-primary" ><i class="bi bi-toggle-off"></i> Salir del sistema</a>
+      
       <a href="index" class="btn btn-primary" ><i class="bi bi-house"></i> Inicio</a>
+      <a href="salir" class="btn btn-primary" ><i class="bi bi-toggle-off"></i> Salir del sistema</a>
     </div>
   </div>
   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
