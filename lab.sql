@@ -1,6 +1,6 @@
 /*
 SQLyog Community v13.1.9 (64 bit)
-MySQL - 10.4.22-MariaDB : Database - lab
+MySQL - 10.4.24-MariaDB : Database - lab
 *********************************************************************
 */
 
@@ -30,9 +30,13 @@ CREATE TABLE `cliente` (
   `obscliente` varchar(150) DEFAULT NULL,
   `atendido` int(1) DEFAULT 1,
   PRIMARY KEY (`idcliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `cliente` */
+
+insert  into `cliente`(`idcliente`,`nombrecliente`,`fechanacimiento`,`edadcliente`,`telefonocliente`,`correocliente`,`obscliente`,`atendido`) values 
+(5,'Mariana Ortis','1991-02-13',31,75332509,'orits@gmail.com','Mocosa',1),
+(6,'Jose Miguel Zalazar','1993-02-10',29,75332509,'miguel@gmail.com','njknjknk',1);
 
 /*Table structure for table `comercio` */
 
@@ -43,13 +47,14 @@ CREATE TABLE `comercio` (
   `idsuscripcion` int(11) DEFAULT NULL,
   `fechasuscripcion` date DEFAULT NULL,
   `comercio` varchar(150) DEFAULT NULL,
+  `idtipocomercio` int(2) DEFAULT NULL,
   PRIMARY KEY (`idcomercio`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `comercio` */
 
-insert  into `comercio`(`idcomercio`,`idsuscripcion`,`fechasuscripcion`,`comercio`) values 
-(1,1,'2022-07-12','Analiza');
+insert  into `comercio`(`idcomercio`,`idsuscripcion`,`fechasuscripcion`,`comercio`,`idtipocomercio`) values 
+(1,1,'2022-07-12','Analiza',1);
 
 /*Table structure for table `suscripcion` */
 
@@ -67,6 +72,24 @@ CREATE TABLE `suscripcion` (
 insert  into `suscripcion`(`idsuscripcion`,`suscripcion`,`costosuscripcion`) values 
 (1,'Bronce',200.00);
 
+/*Table structure for table `tipocomercio` */
+
+DROP TABLE IF EXISTS `tipocomercio`;
+
+CREATE TABLE `tipocomercio` (
+  `idtipocomercio` int(11) NOT NULL AUTO_INCREMENT,
+  `tipocomercio` varchar(150) DEFAULT NULL,
+  `comentario` text DEFAULT NULL,
+  PRIMARY KEY (`idtipocomercio`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `tipocomercio` */
+
+insert  into `tipocomercio`(`idtipocomercio`,`tipocomercio`,`comentario`) values 
+(1,'Laboratorio','Solo laboratotio'),
+(2,'Clinica','Solamente clinica'),
+(3,'Laboratorio y clinica','Ambos comercios');
+
 /*Table structure for table `tipousuario` */
 
 DROP TABLE IF EXISTS `tipousuario`;
@@ -75,31 +98,13 @@ CREATE TABLE `tipousuario` (
   `idtipousuario` int(11) NOT NULL AUTO_INCREMENT,
   `tipousuario` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`idtipousuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tipousuario` */
 
 insert  into `tipousuario`(`idtipousuario`,`tipousuario`) values 
-(1,'Recepción');
-
-/*Table structure for table `user` */
-
-DROP TABLE IF EXISTS `user`;
-
-CREATE TABLE `user` (
-  `iduser` int(11) NOT NULL AUTO_INCREMENT,
-  `nombrecompleto` varchar(150) DEFAULT NULL,
-  `idtipo` int(11) DEFAULT NULL,
-  `nick` varchar(150) DEFAULT NULL,
-  `clave` varchar(150) DEFAULT NULL,
-  `estadouser` int(1) DEFAULT 1,
-  PRIMARY KEY (`iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
-
-/*Data for the table `user` */
-
-insert  into `user`(`iduser`,`nombrecompleto`,`idtipo`,`nick`,`clave`,`estadouser`) values 
-(1,'jose vargas',1,'kike','12345',1);
+(1,'Recepción'),
+(2,'Administrador');
 
 /*Table structure for table `usuario` */
 
@@ -114,12 +119,13 @@ CREATE TABLE `usuario` (
   `idtipousuario` int(11) DEFAULT NULL,
   `nombrecompleto` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `usuario` */
 
 insert  into `usuario`(`idusuario`,`nombre`,`pass`,`tipouser`,`idcomercio`,`idtipousuario`,`nombrecompleto`) values 
-(1,'kike','12345',NULL,'1',1,'Jose Enrique');
+(1,'kike','12345',NULL,'1',1,'Jose Enrique'),
+(2,'admin','admin',NULL,'1',2,'Administrador');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

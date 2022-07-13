@@ -28,6 +28,7 @@ $(document).ready(function(){
           
       // $("#carga").hide("fast");
        $("#carga").show("fast");
+       $("#alertlogin2").hide("fast");
        
    },
        success:function(resp){
@@ -54,7 +55,7 @@ $(document).ready(function(){
            
            if(resp==0){
                
-               $("#carga2").hide("fast");
+                $("#carga").hide("fast");
                $("#alertlogin2").show("fast");
            
              

@@ -9,7 +9,7 @@
         </div>
         <div class="col-md-6 p-3"><h5>HeyLab! (<?php echo $nombrecompleto; ?>)</h5></div>
         <?php
-        $statement = $pdo->prepare("SELECT * FROM usuario left join comercio on usuario.idcomercio=comercio.idcomercio WHERE usuario.idcomercio='$idcomercio'  ");
+        $statement = $pdo->prepare("SELECT * FROM usuario left join comercio on usuario.idcomercio=comercio.idcomercio WHERE usuario.idcomercio='$idcomercio' AND usuario.idusuario='$idusuario'  ");
         $statement->execute();
         while ($resulte = $statement->fetch()) {
         ?>

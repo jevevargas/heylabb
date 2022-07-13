@@ -87,6 +87,14 @@
 
         
     <?php
+    }elseif($idtipousuario=='2'){
+        ?>
+        <div class="col-md-12">
+            <div class="row">
+                
+            </div>
+        </div>
+        <?php
     }
     ?>
    
