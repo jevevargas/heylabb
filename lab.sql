@@ -1,6 +1,6 @@
 /*
 SQLyog Community v13.1.9 (64 bit)
-MySQL - 10.4.24-MariaDB : Database - lab
+MySQL - 10.4.22-MariaDB : Database - lab
 *********************************************************************
 */
 
@@ -15,6 +15,24 @@ MySQL - 10.4.24-MariaDB : Database - lab
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`lab` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 
 USE `lab`;
+
+/*Table structure for table `cliente` */
+
+DROP TABLE IF EXISTS `cliente`;
+
+CREATE TABLE `cliente` (
+  `idcliente` int(11) NOT NULL AUTO_INCREMENT,
+  `nombrecliente` varchar(150) DEFAULT NULL,
+  `fechanacimiento` date DEFAULT NULL,
+  `edadcliente` int(3) DEFAULT NULL,
+  `telefonocliente` int(8) DEFAULT NULL,
+  `correocliente` varchar(150) DEFAULT NULL,
+  `obscliente` varchar(150) DEFAULT NULL,
+  `atendido` int(1) DEFAULT 1,
+  PRIMARY KEY (`idcliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `cliente` */
 
 /*Table structure for table `comercio` */
 
@@ -63,6 +81,25 @@ CREATE TABLE `tipousuario` (
 
 insert  into `tipousuario`(`idtipousuario`,`tipousuario`) values 
 (1,'Recepción');
+
+/*Table structure for table `user` */
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `iduser` int(11) NOT NULL AUTO_INCREMENT,
+  `nombrecompleto` varchar(150) DEFAULT NULL,
+  `idtipo` int(11) DEFAULT NULL,
+  `nick` varchar(150) DEFAULT NULL,
+  `clave` varchar(150) DEFAULT NULL,
+  `estadouser` int(1) DEFAULT 1,
+  PRIMARY KEY (`iduser`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `user` */
+
+insert  into `user`(`iduser`,`nombrecompleto`,`idtipo`,`nick`,`clave`,`estadouser`) values 
+(1,'jose vargas',1,'kike','12345',1);
 
 /*Table structure for table `usuario` */
 

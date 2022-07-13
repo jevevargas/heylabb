@@ -45,5 +45,21 @@ body{
 
 .addcita{
     background-color: #FFF;
-    height: 80vh;
+    height: 90vh;
+    overflow: auto;
 }
+
+.addcita::-webkit-scrollbar {
+    width: 7px;
+  
+  }
+  
+  .addcita::-webkit-scrollbar-thumb {
+    background: #AAAAAA;
+    border-radius: 5px;
+  }
+
+  .circulo{
+   
+    color: #0E4186;
+  }

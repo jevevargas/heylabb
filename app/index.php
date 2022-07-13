@@ -29,46 +29,40 @@
                         </div>
 
                         <div class="col-md-4 col-sm-6 mt-4">
-                            <label for="">Nombre completo</label>
-                            <input type="text" class="form-control" id="nombre">
+                            <input type="text" class="form-control" id="nombre" placeholder="Nombre completo">
                             <div class="invalid-feedback">
                                 Campo vacio!
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 mt-4">
-                            <label for="">Fecha de nacimiento</label>
-                            <input type="date" class="form-control" id="fnacimiento">
+                            <input type="date" class="form-control" id="fnacimiento" >
                         </div>
                         <div class="col-md-2 mt-4">
-                            <label for="">Edad</label>
-                            <input type="number" class="form-control" id="edad">
+                            <input type="text" class="form-control" id="edades">
                             <div class="invalid-feedback">
                                 Campo vacio!
                             </div>
                         </div>
                         <div class="col-md-3 mt-4">
-                            <label for="">Teléfono</label>
-                            <input type="number" class="form-control" id="tel" >
+                            <input type="number" class="form-control" id="tel" placeholder="Teléfono" >
                             <div class="invalid-feedback">
                                 Operación invalida!
                             </div>
                         </div>
                         <div class="col-md-6 mt-3">
-                            <label for="">Correo</label>
                             <input type="text" class="form-control" id="correo" >
-                            <div class="invalid-feedback">
+                            <div class="invalid-feedback" placeholder="Correo">
                                 Campo vacio!
                             </div>
                         </div>
                         <div class="col-md-6 mt-3">
-                            <label for="">Observación</label>
-                            <input type="text" class="form-control" id="obs" >
+                            <input type="text" class="form-control" id="obs" placeholder="Observación">
                             <div class="invalid-feedback">
                                 Campo vacio!
                             </div>
                         </div>
                         <div class="col-md-12 mt-3">
-                            <center><button class="btn btn-primary btn-sm" onclick="addclient()"><i class='bx bx-test-tube'></i> Registrar cliente</button></center>
+                            <center><button class="btn btn-primary btn-sm" onclick="addclient()"><i class='bx bx-test-tube'></i> Registrar clientes</button></center>
                         </div>
 
                     </div>
@@ -82,7 +76,7 @@
 
                 <div class="col-md-3 addcita ml-4">
                         <div class="col-12 border-bottom">
-                           <h5> </h5>
+                           <div class="col-md-12" id="tablacita"></div>
                         </div>
                 </div>
 
