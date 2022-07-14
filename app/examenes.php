@@ -38,12 +38,13 @@
 
                             <div class="col-md-3 p-2">
                                 <div class="form-check">
-                                    <input class="form-check-input get_value" type="checkbox" value="<?php echo $resulte->idexamen; ?>" id="asis" name="asis[]" onclick="ingre()">
+                                    <input class="form-check-input get_value" type="checkbox" value="<?php echo $resulte->idexamen; ?>" id="asis" name="asis[]">
                                     <label class="form-check-label" for="flexCheckDefault">
                                         <b><?php echo $resulte->examen; ?></b>
                                     </label>
+                                    <span id="mesp<?php echo $resulte->idexamen; ?>" style="display:none"><?php echo $resulte->idexamen; ?></span>
                                 </div>
-                            </div> 
+                            </div>
 
                         <?php } ?>
 
