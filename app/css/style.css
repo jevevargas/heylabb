@@ -63,3 +63,42 @@ body{
    
     color: #0E4186;
   }
+
+
+  .exam{
+    height: 35vh;
+    overflow: auto;
+  }
+
+  .exam::-webkit-scrollbar {
+      width: 7px;
+
+  }
+
+  .exam::-webkit-scrollbar-thumb {
+      background: #AAAAAA;
+      border-radius: 5px;
+  }
+
+  .crollcaja{
+    height: 55vh;
+    overflow: auto;
+  }
+  .crollcaja::-webkit-scrollbar {
+            width: 7px;
+    
+  }
+    
+  .crollcaja::-webkit-scrollbar-thumb {
+            background: #AAAAAA;
+            border-radius: 5px;
+  }
+
+  .btndelete{
+    color: #E81414;
+    font-size: 20px;
+  }
+
+  .borderl{
+    border-left: 3px solid #2A87DE ;
+  }

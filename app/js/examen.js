@@ -1,4 +1,25 @@
 
+ $(document).ready(function () {
+   tablaventa();
+ });
+ 
+ 
+function tablaventa() {
+
+  var idcliente = $("#idcliente").val();
+  $.ajax({
+    url: "tablaventa.php",
+    type: "POST",
+    dataType: "html",
+    data: { idcliente: idcliente },
+  }).done(function (r) {
+    $("#tablaventa").html(r);
+  });
+}
+
+
+
+
  $(document).on("click", ".get_value", function () {
    var id = $(this).val();
    var mesp = $("#mesp" + id).text();
@@ -29,10 +50,10 @@
 
      Toast.fire({
        icon: "info",
-       title: "EXITO",
+       title: "Agregando...",
      });
 
-     //arqueo();
+     tablaventa();
    },
  });
  });

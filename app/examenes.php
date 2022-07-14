@@ -18,6 +18,15 @@
         <?php require_once('comercio.php');  ?>
     </div>
 
+    <?php
+    $statement = $pdo->prepare("SELECT * FROM cliente where idcliente='$id'");
+    $statement->execute();
+    while ($result = $statement->fetch()) {
+        $nombre = $result->nombrecliente;
+        $idcliente = $result->idcliente;
+    }
+    ?>
+
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-7 addclient m-2 p-4">
@@ -25,13 +34,13 @@
                     <p><b> <i class="bi bi-plus-circle-fill" style="color:rgba(24,119,242,1)"></i> Agregar exámen</b></p>
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-12 exam border-bottom">
                     <!-- <form id="idform"> -->
                     <div class="row">
 
                         <input type="text" value="<?php echo $id; ?>" id="idcliente" style="display:none">
                         <?php
-                        $statement = $pdo->prepare("SELECT * FROM examen ");
+                        $statement = $pdo->prepare("SELECT * FROM examen where tipoexamen='1' ");
                         $statement->execute();
                         while ($resulte = $statement->fetch()) {
                         ?>
@@ -40,8 +49,8 @@
                                 <div class="form-check">
                                     <input class="form-check-input get_value" type="checkbox" value="<?php echo $resulte->idexamen; ?>" id="asis" name="asis[]">
                                     <label class="form-check-label" for="flexCheckDefault">
-                                        <b><?php echo $resulte->examen; ?></b>
-                                    </label>
+                                        <?php echo $resulte->examen; ?>
+                                        <i class="bi bi-currency-dollar"></i><?php echo $resulte->costoexamen; ?></label>
                                     <span id="mesp<?php echo $resulte->idexamen; ?>" style="display:none"><?php echo $resulte->idexamen; ?></span>
                                 </div>
                             </div>
@@ -49,21 +58,128 @@
                         <?php } ?>
 
                     </div>
-                    <!--<div class="col-md-12 mt-3">
-                            <center> <button type="button" name="submit" class="btn btn-primary" onclick="agregar_asistencia()">Registrar examenes</button>
-                            </center>
-                        </div>
-                   </form> -->
+
 
 
                 </div>
+                <div class="col-md-12 exam">
+                    <div class="col-md-12 mt-2">
+                        <p><b><i class='bx bxs-bong' style='font-size:25px;color:rgba(24,119,242,1);'></i> Paquetes</b></p>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+
+                            <input type="text" value="<?php echo $id; ?>" id="idcliente" style="display:none">
+                            <?php
+                            $statement = $pdo->prepare("SELECT * FROM examen where tipoexamen='2' ");
+                            $statement->execute();
+                            while ($resulte = $statement->fetch()) {
+                            ?>
+
+                                <div class="col-md-3 p-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input get_value" type="checkbox" value="<?php echo $resulte->idexamen; ?>" id="asis" name="asis[]">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            <b><?php echo $resulte->examen; ?></b>
+                                        </label>
+                                        <span id="mesp<?php echo $resulte->idexamen; ?>" style="display:none"><?php echo $resulte->idexamen; ?></span>
+                                    </div>
+                                </div>
+
+                            <?php } ?>
+
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-4 addclient m-2 p-4">
+                <div class="col-md-12 border-bottom">
+                    <h5><i class='bx bx-user-check' style='font-size:25px;'></i> <?php echo $nombre; ?> - Cod <?php echo $idcliente; ?></h5>
+                </div>
+                <div class="col-md-12 p-2" id="tablaventa"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="terminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Terminar factura</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-8 border-end">
+                            <div class="col-md-12 p-2">
+                                <p><b><i class="bi bi-check-circle-fill  text-primary"></i> Tipo de facturacion</b></p>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+
+                                    <div class="form-check col-3">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Recibo
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-3">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Ticket
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-3">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Fiscal
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-3">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Consumidor
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-4 border-top p-2">
+                                <p><b> <i class="bi bi-check-circle-fill text-primary"></i> Metodo de pago</b></p>
+                            </div>
+                            <div class="col-md-6">
+
+                                <select name="metodo" id="metodo" class="form-select">
+                                    <?php
+                                    $statement = $pdo->prepare("SELECT * FROM metodopago ");
+                                    $statement->execute();
+                                    while ($resumetodo = $statement->fetch()) {
+                                    ?>
+                                        <option value="<?php echo $resumetodo->idmetodo ?>"><?php echo $resumetodo->metodo ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
     </div>
+
+
+
+
 
 
 
