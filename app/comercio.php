@@ -13,7 +13,7 @@
         $statement->execute();
         while ($resulte = $statement->fetch()) {
         ?>
-            <div class="col-md-5 d-flex flex-row-reverse bd-highlight p-3"><span class="badge rounded-pill bg-warning text-dark pt-2" ><i class='bx bxs-flask'></i> <?php echo $resulte->comercio;  ?></span></div>
+            <div class="col-md-5 d-flex flex-row-reverse bd-highlight p-3"><span class="badge rounded-pill bg-warning text-dark pt-2" ><i class='bx bxs-flask'></i>Comercio <?php echo $resulte->comercio;  ?></span></div>
         <?php } ?>
     </div>
 
