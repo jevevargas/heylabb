@@ -11,8 +11,9 @@ if($idusuario==1){
     </div>
     <div class="offcanvas-body">
       
-      <a href="index" class="btn btn-primary" ><i class="bi bi-house"></i> Inicio</a>
-      <a href="salir" class="btn btn-danger" ><i class="bi bi-power"></i> Salir del sistema</a>
+      <a href="index" class="btn btn-primary w-100" ><i class="bi bi-house"></i> Inicio</a>
+      <hr>
+      <a href="salir" class="btn btn-danger w-100 p-6" ><i class="bi bi-power"></i> Salir del sistema</a>
     </div>
   </div>
   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
