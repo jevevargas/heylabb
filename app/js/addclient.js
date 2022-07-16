@@ -1,8 +1,14 @@
 
 $(document).ready(function() {
   tablacita();
-
+ tablaexamenes();
 });
+
+
+setInterval(function () {
+  tablaexamenes();
+}, 1000);
+
 
 function tablacita() {
   $.ajax({
@@ -16,6 +22,21 @@ function tablacita() {
       })
 
 }
+
+
+function tablaexamenes() {
+  //var idcliente = $("#idcliente").val();
+  $.ajax({
+    url: "tablaexamenes.php",
+    type: "POST",
+    dataType: "html",
+    data: {},
+  }).done(function (r) {
+    $("#tablaexamenes").html(r);
+  });
+}
+
+
 
 $(function () {
   $("#fnacimiento").on("change", calcularEdad);

@@ -57,7 +57,7 @@
                     <input type="text" value="<?php echo $idcliente; ?>" id="clien" style="display:none">
                     <div class="col-md-8 border-end">
                         <div class="col-md-12 p-2">
-                            <p><b><i class="bi bi-check-circle-fill  text-primary"></i> Tipo de facturación</b></p>
+                            <p><b><i class="bi bi-check-circle-fill  text-primary"></i> Tipo de facturación (Paso 2)</b></p>
                         </div>
                         <div class="col-md-12">
                             <div class="row">
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 mt-4 border-top p-2">
-                            <p><b> <i class="bi bi-check-circle-fill text-primary"></i> Método de pago</b></p>
+                            <p><b> <i class="bi bi-check-circle-fill text-primary"></i> Método de pago Paso(3)</b></p>
                         </div>
                         <div class="col-md-6">
 
@@ -110,16 +110,17 @@
                     </div>
 
                     <div class="col-md-4">
+                        <p><b>Paso (1)</b></p>
                         <div class="input-group col-md-12">
                             <input type="text" value="<?php echo number_format((float)$orden, 2, '.', ''); ?>" class="form-control border-primary" readonly id="total">
                         </div>
                         <div class="col-md-12 mt-3">
                             <label for="">Cantidad recibida</label>
-                            <input type="text" class="form-control focus" id="efectivo">
+                            <input type="text" class="form-control" id="efectivo" autofocus="autofocus">
                         </div>
                         <div class="col-md-12 mt-3">
                             <label for="">Cambio</label>
-                            <input type="text" class="form-control" id="cambio">
+                            <input type="text" class="form-control" id="cambio" autofocus="autofocus">
                         </div>
                         <div class="col-md-12 mt-3">
                             <center><button class="btn btn-primary">Finalizar facturación</button></center>
@@ -135,3 +136,58 @@
 
 
 <script class="js/examen.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#efectivo").on("keyup change", function() {
+            var rec = $("#efectivo").val();
+            var com = $("#total").val();
+            var clien = $("#clien").val();
+
+            console.log(clien);
+
+            if (rec > 0) {
+                //var totalprp = com * 0.1;
+                var total = rec - com;
+                //var fin = sum + totalprp;
+                var totali = parseFloat(parseFloat(total).toFixed(2));
+                $("#cambio").val(totali);
+            } else {
+                $("#cambio").val(0);
+            }
+
+            $.ajax({
+                url: "agregarefectivo.php", // Es importante que la ruta sea correcta si no, no se va a ejecutar
+                method: "POST",
+                data: {
+                    clien: clien,
+                    rec: rec,
+                    com: com,
+                    totali: totali
+
+
+                },
+                beforeSend: function() {},
+                success: function() {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        onOpen: toast => {
+                            toast.addEventListener("mouseenter", Swal.stopTimer);
+                            toast.addEventListener("mouseleave", Swal.resumeTimer);
+                        },
+                    });
+
+                    Toast.fire({
+                        icon: "success",
+                        title: "Tipo de pago agregado",
+                    });
+                },
+            });
+
+
+        });
+    });
+</script>

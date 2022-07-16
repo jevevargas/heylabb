@@ -2,6 +2,8 @@
  $(document).ready(function () {
    tablaventa();
    botonfact();
+
+
  });
  
  
@@ -29,7 +31,6 @@ function botonfact() {
     $("#botonfact").html(r);
   });
 }
-
 
 
 
@@ -154,3 +155,5 @@ $(function () {
            },
          });
        }
+
+

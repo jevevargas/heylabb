@@ -102,3 +102,19 @@ body{
   .borderl{
     border-left: 3px solid #2A87DE ;
   }
+
+
+  .short{
+    height: 30vh;
+    overflow: auto;
+  }
+
+        .short::-webkit-scrollbar {
+          width: 7px;
+    
+        }
+    
+        .short::-webkit-scrollbar-thumb {
+          background: #AAAAAA;
+          border-radius: 5px;
+        }

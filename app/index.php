@@ -63,14 +63,34 @@
                             </div>
                         </div>
                         <div class="col-md-12 mt-3">
-                            <center><button class="btn btn-primary btn-sm" onclick="addclient()"><i class='bx bx-test-tube'></i> Registrar clientes</button></center>
+                            <center>
+                                <button class="btn btn-primary btn-sm" onclick="addclient()"><i class='bx bx-test-tube' style='font-size:25px;'></i><br> Registrar clientes</button>
+
+                                <button class="btn btn-warning btn-sm"><i class='bx bxs-group' style='font-size:25px;'></i><br> Historial de clientes</button>
+                            </center>
                         </div>
 
                     </div>
 
-                    <div class="col-md-12 addclient mt-5">
+                    <div class="col-md-12  mt-5">
                         <div class="col-12 border-bottom">
                             <h5> Exámenes <span class="badge rounded-pill bg-warning text-dark"><i class="bi bi-check-circle-fill" style="color:#000;"></i> listos</span></h5>
+                        </div>
+                        <div class="col-md-12 mt-3 short">
+                            <table class="table table-bordered table-striped ">
+                                <thead>
+                                    <tr>
+                                        <td style="font-size:12px;"><b>Cod.</b></td>
+                                        <td style="font-size:12px;"><b>Cliente</b></td>
+                                        <td style="font-size:12px;"><b>Examen</b></td>
+                                        <td style="font-size:12px;"><b>Estado</b></td>
+                                        <td style="font-size:12px;"><b>Tecnico</b></td>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaexamenes">
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
