@@ -38,6 +38,7 @@ function botonfact() {
    var id = $(this).val();
    var mesp = $("#mesp" + id).text();
    var idcliente = $("#idcliente").val();
+   var ordenes = $("#ordenes").val();
 //console.log(idcliente);
    //console.log(mesp);
    
@@ -47,6 +48,7 @@ function botonfact() {
    data: {
      mesp: mesp,
      idcliente: idcliente,
+     ordenes:ordenes
    },
    beforeSend: function () {},
    success: function () {
@@ -157,3 +159,32 @@ $(function () {
        }
 
 
+function terminar(){
+  var terminarorden = $("#terminarorden").val(),
+    clien = $("#clien").val();
+
+    $.ajax({
+      url: "finalizarpago.php", // Es importante que la ruta sea correcta si no, no se va a ejecutar
+      method: "POST",
+      data: { terminarorden: terminarorden, clien: clien },
+      beforeSend: function () {},
+      success: function () {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+          onOpen: toast => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+
+        Toast.fire({
+          icon: "success",
+          title: "Proceso terminado",
+        });
+      },
+    });
+}

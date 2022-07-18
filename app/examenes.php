@@ -40,23 +40,30 @@
                     <div class="row">
 
                         <input type="text" value="<?php echo $id; ?>" id="idcliente" style="display:none">
+
                         <?php
+
+                        $statement = $pdo->prepare("SELECT * FROM contorden WHERE idcliente='$id'  ");
+                        $statement->execute();
+                        while ($resultor = $statement->fetch()) {
+                            $ordenes = $resultor->idcontorden;
+                        }
+
                         $statement = $pdo->prepare("SELECT * FROM examen where tipoexamen='1' ");
                         $statement->execute();
                         while ($resulte = $statement->fetch()) {
                         ?>
+                            <input type="text" value="<?php echo $ordenes; ?>" id="ordenes" style="display:none">
 
-                        <div class="col-md-3 p-2">
-                            <div class="form-check">
-                                <input class="form-check-input get_value" type="checkbox"
-                                    value="<?php echo $resulte->idexamen; ?>" id="asis" name="asis[]">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    <?php echo $resulte->examen; ?>
-                                    <i class="bi bi-currency-dollar"></i><?php echo $resulte->costoexamen; ?></label>
-                                <span id="mesp<?php echo $resulte->idexamen; ?>"
-                                    style="display:none"><?php echo $resulte->idexamen; ?></span>
+                            <div class="col-md-3 p-2">
+                                <div class="form-check">
+                                    <input class="form-check-input get_value" type="checkbox" value="<?php echo $resulte->idexamen; ?>" id="asis" name="asis[]">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <?php echo $resulte->examen; ?>
+                                        <i class="bi bi-currency-dollar"></i><?php echo $resulte->costoexamen; ?></label>
+                                    <span id="mesp<?php echo $resulte->idexamen; ?>" style="display:none"><?php echo $resulte->idexamen; ?></span>
+                                </div>
                             </div>
-                        </div>
 
                         <?php } ?>
 
@@ -80,17 +87,15 @@
                             while ($resulte = $statement->fetch()) {
                             ?>
 
-                            <div class="col-md-3 p-2">
-                                <div class="form-check">
-                                    <input class="form-check-input get_value" type="checkbox"
-                                        value="<?php echo $resulte->idexamen; ?>" id="asis" name="asis[]">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        <b><?php echo $resulte->examen; ?></b>
-                                    </label>
-                                    <span id="mesp<?php echo $resulte->idexamen; ?>"
-                                        style="display:none"><?php echo $resulte->idexamen; ?></span>
+                                <div class="col-md-3 p-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input get_value" type="checkbox" value="<?php echo $resulte->idexamen; ?>" id="asis" name="asis[]">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            <b><?php echo $resulte->examen; ?></b>
+                                        </label>
+                                        <span id="mesp<?php echo $resulte->idexamen; ?>" style="display:none"><?php echo $resulte->idexamen; ?></span>
+                                    </div>
                                 </div>
-                            </div>
 
                             <?php } ?>
 

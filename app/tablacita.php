@@ -1,7 +1,7 @@
 <?php
  require_once('session.php');
  require_once('header.php');
-$statement = $pdo->prepare("SELECT * FROM cliente  ");
+$statement = $pdo->prepare("SELECT * FROM cliente where atendido='1' ");
 $statement->execute();
 while ($resulte = $statement->fetch()) {
 ?>

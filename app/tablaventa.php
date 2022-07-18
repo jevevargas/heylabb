@@ -42,14 +42,21 @@
 </div>
 
 
+<?php
 
-
+$statement = $pdo->prepare("SELECT * FROM contorden WHERE idcliente='$idcliente'  ");
+$statement->execute();
+while ($resultor = $statement->fetch()) {
+$ordenes=$resultor->idcontorden; 
+}
+?>
+<input type="text" value="<?php echo $ordenes; ?>" id="terminarorden" style="display:none">
 <!-- Modal -->
 <div class="modal fade" id="terminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Terminar el proceso de pago</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Terminar el proceso de pago orden #<?php echo $ordenes; ?></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -123,7 +130,7 @@
                             <input type="text" class="form-control" id="cambio" autofocus="autofocus">
                         </div>
                         <div class="col-md-12 mt-3">
-                            <center><button class="btn btn-primary">Finalizar facturación</button></center>
+                            <center><button class="btn btn-primary" onclick="terminar()">Finalizar facturación</button></center>
                         </div>
 
                     </div>
