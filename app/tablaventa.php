@@ -84,7 +84,7 @@ $ordenes=$resultor->idcontorden;
                                 <div class="form-check col-3">
                                     <input class="form-check-input fact" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="3">
                                     <label class="form-check-label" for="flexRadioDefault1">
-                                        Fiscal
+                                        Credito Fiscal
                                     </label>
                                 </div>
                                 <div class="form-check col-3">

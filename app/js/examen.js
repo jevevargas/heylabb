@@ -185,6 +185,8 @@ function terminar(){
           icon: "success",
           title: "Proceso terminado",
         });
+
+        location.href="index.php";
       },
     });
 }
