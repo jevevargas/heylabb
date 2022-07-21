@@ -16,71 +16,36 @@
         <?php require_once('comercio.php');  ?>
     </div>
 
-
+    <?php require_once('./consulta/fecha.php');  ?>
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-8 addcita m-2 p-4">
                 <div class="col-md-12 border-bottom">
-                    <p><b> <i class="bx bx-calculator" style='color:rgba(24,119,242,1); font-size:20px;'></i> Caja</b>
-
+                    <p><b> <i class="bx bx-calculator" style='color:rgba(24,119,242,1); font-size:20px;'></i> Caja (<?php echo $caja;  ?>)</b>
                     </p>
                 </div>
 
-                <div class="col-md-12  table-responsive">
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <td style="font-size:11px;"><b>#Orden</b></td>
-                                <td style="font-size:11px;"><b>Cliente</b></td>
-                                <td style="font-size:11px;"><b>Fecha</b></td>
-                                <td style="font-size:11px;"><b>Metodo de pago</b></td>
-                                <td style="font-size:11px;"><b>Tipo factura</b></td>
-                                <td style="font-size:11px;"><b>Total</b></td>
-                                <td style="font-size:11px;"><b>Efectivo</b></td>
-                                <td style="font-size:11px;"><b>Cambio</b></td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $tip = 0;
-                            $statement = $pdo->prepare("SELECT * FROM contorden left join cliente on contorden.idcliente=cliente.idcliente left join metodopago on contorden.idmetodopago =metodopago.idmetodopago ");
-                            $statement->execute();
-                            while ($resulte = $statement->fetch()) {
-                                $tipofact = $resulte->tipofact;
-                                if ($tipofact == 1) {
-                                    $tip = 'Factura';
-                                } elseif ($tipofact == 2) {
-                                    $tip = 'Recibo';
-                                } elseif ($tipofact == 3) {
-                                    $tip = 'Credito fiscal';
-                                } elseif ($tipofact == 4) {
-                                    $tip = 'Consumidor';
-                                } elseif ($tipofact == '') {
-                                    $tip = 'Sin especificar';
-                                }
-                            ?>
-                                <tr>
-                                    <td style="font-size:12px;">#<?php echo $resulte->idcontorden;  ?></td>
-                                    <td style="font-size:12px;"><?php echo $resulte->nombrecliente;  ?></td>
-                                    <td style="font-size:12px;"><?php echo $resulte->fechacontorden;  ?></td>
-                                    <td style="font-size:12px;"><?php echo $resulte->metodo;  ?></td>
-                                    <td style="font-size:12px;"><?php echo $tip;  ?></td>
-                                    <td style="font-size:12px;"><i class='bx bx-dollar'></i><?php echo $resulte->totalorden;  ?></td>
-                                    <td style="font-size:12px;"><i class='bx bx-dollar'></i><?php echo $resulte->efectivo;  ?></td>
-                                    <td style="font-size:12px;"><i class='bx bx-dollar'></i><?php echo $resulte->cambio;  ?></td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-
-
-
-
-                </div>
-
+                <div class="col-md-12" id="detallecaja"></div>
             </div>
 
             <div class="col-md-3 addclient m-2 p-4">
+                <?php
+                $tip = 0;
+                $total = 0;
+
+                $statement = $pdo->prepare("SELECT * FROM contorden left join cliente on contorden.idcliente=cliente.idcliente left join metodopago on contorden.idmetodopago =metodopago.idmetodopago where fechacontorden2  BETWEEN  '$inicio' AND '$final' ");
+                $statement->execute();
+                while ($resulte = $statement->fetch()) {
+                    $total = +$resulte->totalorden;
+                }
+                ?>
+                <div class="col-md-12 bg-warning p-4">
+                    <h1 class="text-center">$<?php echo number_format((float) $total, 2, '.', ''); ?></h1>
+                </div>
+
+                <div class="col-md-12 mt-4"><button class="btn btn-primary w-100"><i class='bx bx-money-withdraw' style='font-size:20px;'></i> Arqueo del dia</button></div>
+
+                <div class="col-md-12 mt-2"><button class="btn btn-danger w-100"><i class='bx bx-money-withdraw' style='font-size:20px;'></i> (-) Egresos de caja</button></div>
 
             </div>
         </div>
@@ -98,5 +63,6 @@
 </body>
 <?php require_once('foot.php'); ?>
 <script src="js/examen.js"></script>
+<script src="js/caja.js"></script>
 
 </html>

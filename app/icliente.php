@@ -9,7 +9,7 @@ $correo=$_POST['correo'];
 $obs=$_POST['obs'];
 $edades = $_POST['edades'];
 $fecha=date('Y-m-d');
-
+$fecha2 = date('Y-m-d H:i:s');
 ////// Fin informacion enviada por el formulario ///
 require_once('config/conexion.php');
 ////////////// Actualizar la tabla /////////
@@ -24,9 +24,9 @@ while ($resulte = $statement->fetch()) {
  $cli=$resulte->idcliente+1;
 }
 
-$consulta2 = "insert into contorden(idcliente,fechacontorden) 
+$consulta2 = "insert into contorden(idcliente,fechacontorden,fechacontorden2) 
 values
-(:cli,:fecha)";
+(:cli,:fecha,:fecha2)";
 
 
 $sql = $pdo->prepare($consulta);
@@ -41,6 +41,7 @@ $sql->bindParam(':obs', $obs,PDO::PARAM_STR);
 
 $sql2->bindParam(':cli', $cli, PDO::PARAM_STR);
 $sql2->bindParam(':fecha', $fecha, PDO::PARAM_STR);
+$sql2->bindParam(':fecha2', $fecha2, PDO::PARAM_STR);
  
 $sql->execute();
 $sql2->execute();

@@ -21,3 +21,7 @@
  <?php
                                                                                                                 }
     ?>
+
+
+ <button class="btn btn-primary" onclick="terminar()">Finalizar facturación</button>
+ 

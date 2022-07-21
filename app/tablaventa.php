@@ -129,9 +129,7 @@ $ordenes=$resultor->idcontorden;
                             <label for="">Cambio</label>
                             <input type="text" class="form-control" id="cambio" autofocus="autofocus">
                         </div>
-                        <div class="col-md-12 mt-3">
-                            <center><button class="btn btn-primary" onclick="terminar()">Finalizar facturación</button></center>
-                        </div>
+                        
 
                     </div>
                 </div>
