@@ -71,7 +71,7 @@ if ($estadocaja == 0) {
                 $tip = 0;
                 $total=0;
 
-                $statement = $pdo->prepare("SELECT * FROM contorden left join cliente on contorden.idcliente=cliente.idcliente left join metodopago on contorden.idmetodopago =metodopago.idmetodopago where fechacontorden2  BETWEEN  '$inicio' AND '$final' ");
+                $statement = $pdo->prepare("SELECT * FROM contorden left join cliente on contorden.idcliente=cliente.idcliente left join metodopago on contorden.idmetodopago =metodopago.idmetodopago where fechacontorden2  BETWEEN  '$inicio' AND '$final' AND idusuario='$idusuario' ");
                 $statement->execute();
                 while ($resulte = $statement->fetch()) {
                     $tipofact = $resulte->tipofact;

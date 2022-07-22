@@ -33,7 +33,7 @@
                 $tip = 0;
                 $total = 0;
 
-                $statement = $pdo->prepare("SELECT * FROM contorden left join cliente on contorden.idcliente=cliente.idcliente left join metodopago on contorden.idmetodopago =metodopago.idmetodopago where fechacontorden2  BETWEEN  '$inicio' AND '$final' ");
+                $statement = $pdo->prepare("SELECT * FROM contorden left join cliente on contorden.idcliente=cliente.idcliente left join metodopago on contorden.idmetodopago =metodopago.idmetodopago where fechacontorden2  BETWEEN  '$inicio' AND '$final' AND idusuario='$idusuario' ");
                 $statement->execute();
                 while ($resulte = $statement->fetch()) {
                     $total = +$resulte->totalorden;
@@ -43,7 +43,13 @@
                     <h1 class="text-center">$<?php echo number_format((float) $total, 2, '.', ''); ?></h1>
                 </div>
 
-                <div class="col-md-12 mt-4"><button class="btn btn-primary w-100"><i class='bx bx-money-withdraw' style='font-size:20px;'></i> Arqueo del dia</button></div>
+                <input type="text" value="<?php echo $idusuario; ?>" style="display:none" id="idu">
+                <input type="text" value="<?php echo number_format((float) $total, 2, '.', ''); ?>" style="display:none" id="total">
+                <div class="col-md-12" id="detallearqueo">
+
+                </div>
+
+
 
                 <div class="col-md-12 mt-2"><button class="btn btn-danger w-100"><i class='bx bx-money-withdraw' style='font-size:20px;'></i> (-) Egresos de caja</button></div>
 
@@ -59,10 +65,9 @@
 
 
 
-
 </body>
 <?php require_once('foot.php'); ?>
 <script src="js/examen.js"></script>
-<script src="js/caja.js"></script>
+
 
 </html>

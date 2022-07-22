@@ -1,4 +1,5 @@
  <?php 
+
     $statement = $pdo->prepare("SELECT * FROM caja where idusuario='$idusuario' ");
     $statement->execute();
     while ($resultfecha = $statement->fetch()) {

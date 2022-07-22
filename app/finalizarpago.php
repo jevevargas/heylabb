@@ -3,7 +3,6 @@
     ////// Informacion enviada por el formulario /////
     $terminarorden = $_POST['terminarorden'];
     $clien = $_POST['clien'];
-
     $estados='2';
 
     ////// Fin informacion enviada por el formulario ///
@@ -11,7 +10,7 @@
     require_once('header.php');
     ////////////// Actualizar la tabla /////////
     $consulta = "UPDATE contorden
-    SET estadocontorden= :estados WHERE idcontorden = :terminarorden";
+    SET estadocontorden= :estados,idusuario=:idusuario WHERE idcontorden = :terminarorden";
 
     $consulta2 = "UPDATE orden
     SET procesado= :estados WHERE idcontorden = :terminarorden";
@@ -27,6 +26,7 @@
 
     $sql->bindParam(':estados', $estados, PDO::PARAM_INT);
     $sql->bindParam(':terminarorden', $terminarorden, PDO::PARAM_STR);
+    $sql->bindParam(':idusuario', $idusuario, PDO::PARAM_STR);
 
     $sql2->bindParam(':estados', $estados, PDO::PARAM_INT);
     $sql2->bindParam(':terminarorden', $terminarorden, PDO::PARAM_STR);

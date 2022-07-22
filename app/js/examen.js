@@ -3,7 +3,7 @@
    tablaventa();
    botonfact();
    detallecaja();
-
+   detallearqueo();
  });
  
  
@@ -33,6 +33,7 @@ function botonfact() {
 }
 
 function detallecaja() {
+  
   $.ajax({
     url: "detallecaja.php",
     type: "POST",
@@ -42,6 +43,21 @@ function detallecaja() {
     $("#detallecaja").html(r);
   });
 }
+
+function detallearqueo() {
+  var idu = $("#idu").val();
+  var total = $("#total").val();
+  $.ajax({
+    url: "detallearqueo.php",
+    type: "POST",
+    dataType: "html",
+    data: { idu: idu, total: total },
+  }).done(function (r) {
+    $("#detallearqueo").html(r);
+  });
+}
+
+
 
 
  $(document).on("click", ".get_value", function () {
